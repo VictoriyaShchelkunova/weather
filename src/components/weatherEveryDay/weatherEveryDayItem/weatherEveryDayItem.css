@@ -1,0 +1,14 @@
+.listEveryDayItem {
+    width: 300px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.containerEveryDayItems {
+    overflow: hidden;
+    margin: 0 10px 10px;
+}
+
+.containerEveryDayItems ul:last-child {
+    margin-right: 0;
+}

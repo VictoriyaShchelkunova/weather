@@ -1,0 +1,27 @@
+header {
+    height: 240px;
+    border-radius: 5px 5px 0 0;
+    padding-left: 20px;
+}
+
+.wrapper {
+    display: flex;
+}
+
+h2 {
+    color: white;
+    font-family: Arial;
+    text-shadow: #00000059 8px -2px 3px;
+    margin-bottom: 0;
+}
+
+img {
+    width: 35px;
+    height: 35px;
+    margin-top: 5px;
+}
+
+.dark {
+    color: black;
+}
+
