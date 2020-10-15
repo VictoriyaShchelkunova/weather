@@ -4,7 +4,6 @@ import './weatherEveryDay.css';
 import { connect } from 'react-redux';
 
 const WeatherEveryDay = ({ listWeatherEveryDay }) => {
-    debugger
     if (!listWeatherEveryDay) {
         return (
             <span>Loading...</span>
@@ -14,12 +13,10 @@ const WeatherEveryDay = ({ listWeatherEveryDay }) => {
         <div className="wrapperEveryDayItem">
             <div className="container containerEveryDayItems">
                 {
-                    listWeatherEveryDay.map((weatherNextDay) => {
-                        debugger
+                    listWeatherEveryDay.map((weatherNextDay, index) => {
                         const minTemp = weatherNextDay.filter(({dt_txt}) => dt_txt.slice(11, 13) === '00')[0].main.temp;
                         const maxTemp = weatherNextDay.filter(({dt_txt}) => dt_txt.slice(11, 13) === '12')[0].main.temp;
                         const icon = weatherNextDay.filter(({dt_txt}) => dt_txt.slice(11, 13) === '12')[0].weather[0].icon;
-                        debugger
                         const windSpeed = weatherNextDay.map(({wind}) => wind.speed).reduce((prev, curr) => {
                             prev = +prev;
                             curr = +curr;
@@ -40,7 +37,7 @@ const WeatherEveryDay = ({ listWeatherEveryDay }) => {
                         const daysOfWeek = ["Вс.", "Пн.", "Вт.", "Ср.", "Чт.", "Пт.", "Сб."];
                         const date = `${daysOfWeek[dayOfWeek]}, ${weatherNextDay[0].dt_txt.slice(8, 10)}.${weatherNextDay[0].dt_txt.slice(5, 7)}`;
                         return (
-                            <WeatherEveryDayItem temp={temp} date={date} icon={icon} minTemp={minTemp} maxTemp={maxTemp} windSpeed={windSpeed} grndLevel={grndLevel} pop={pop}/>
+                            <WeatherEveryDayItem key={index} temp={temp} date={date} icon={icon} minTemp={minTemp} maxTemp={maxTemp} windSpeed={windSpeed} grndLevel={grndLevel} pop={pop}/>
                         )
                     })
                 }

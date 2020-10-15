@@ -1,12 +1,24 @@
 import React from 'react';
-import './additionInfo.css'
-export const AdditionInfo = ({ grndLevel, visibility, pop, humidity }) => {
+import './additionInfo.css';
+import { connect } from 'react-redux';
+import { setPop } from './setPop';
+import { setGroundLevel } from './setGroundLevel'
+
+const AdditionInfo = ({ weatherNow }) => {
     return (
         <ul className="addition-info">
-            <li>Атмосферное давление: {Math.trunc(grndLevel / 1.333)} мм.рт.ст </li>
-            <li>Видимость:{visibility} м</li>
-            <li>Вероятность осадков: {Math.trunc(pop * 100)}%</li>
-            <li>Влажность: {humidity}%</li>
+            <li>Атмосферное давление: {setGroundLevel(weatherNow.main.grnd_level)} мм.рт.ст </li>
+            <li>Видимость: {weatherNow.visibility} м</li>
+            <li>Вероятность осадков: {setPop(weatherNow.pop)}%</li>
+            <li>Влажность: {weatherNow.main.humidity}%</li>
         </ul>
     )
 }
+
+function mapStateToProps(state) {
+    return {
+        weatherNow: state.weatherNow,
+    }    
+}
+
+export default connect(mapStateToProps)(AdditionInfo);

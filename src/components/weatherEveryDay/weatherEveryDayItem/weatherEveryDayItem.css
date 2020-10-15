@@ -2,6 +2,7 @@
     width: 300px;
     padding-left: 10px;
     font-size: 14px;
+    font-weight: 600;
 }
 
 .containerEveryDayItems {
@@ -11,4 +12,16 @@
 
 .containerEveryDayItems ul:last-child {
     margin-right: 0;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+}
+
+.imgEveryThreeHoursItem {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }

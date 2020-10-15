@@ -1,8 +1,8 @@
 import React from 'react';
 import './weatherToday.css';
-import  {MainInfo}  from './mainInfo/mainInfo';
-import { AdditionInfo } from './additionInfo/additionInfo';
-export const WeatherToday = ({temp, tempFeels, minTemp, maxTemp, windSpeed, grndLevel, visibility, pop, humidity, icon}) => {
+import MainInfo from './mainInfo/mainInfo';
+import AdditionInfo from './additionInfo/additionInfo';
+export const WeatherToday = ({ icon }) => {
     const headerBackgrounds = {
         '01d': 'clear-sky-day',
         '01n': 'clear-sky-night',
@@ -25,11 +25,11 @@ export const WeatherToday = ({temp, tempFeels, minTemp, maxTemp, windSpeed, grnd
     }
     const date = new Date();
     let hours = date.getHours();
-    if(hours < 10){
+    if (hours < 10) {
         hours = `0${hours}`;
     }
     let minutes = date.getMinutes();
-    if(minutes < 10){
+    if (minutes < 10) {
         minutes = `0${minutes}`;
     }
     let dayOfWeek = date.getDay();
@@ -37,16 +37,15 @@ export const WeatherToday = ({temp, tempFeels, minTemp, maxTemp, windSpeed, grnd
     let dayOfDate = date.getDate();
     const month = date.getMonth();
     const monthes = ["января", "феврля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
-    debugger
     return (
-        <header  style={{
-            backgroundImage: `url(assets/${headerBackgrounds[icon]}.jpg)`, 
+        <header style={{
+            backgroundImage: `url(assets/${headerBackgrounds[icon]}.jpg)`,
         }}>
             <h2 >Погода в Миснке {hours}:{minutes} {daysOfWeek[dayOfWeek]}, {dayOfDate} {monthes[month]}</h2>
             <div className="wrapper">
-            <MainInfo  temp={temp} tempFeels={tempFeels} minTemp={minTemp} maxTemp={maxTemp} windSpeed={windSpeed}/>
-            <AdditionInfo  grndLevel={grndLevel} visibility={visibility} pop={pop} humidity={humidity}/>
-            </div>            
+                <MainInfo />
+                <AdditionInfo/>
+            </div>
         </header>
     )
 }

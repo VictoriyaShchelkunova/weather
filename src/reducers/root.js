@@ -1,8 +1,16 @@
+import { setWeatherToday } from '../components/weatherToday/setWeatherToday';
+import { setMaxMinTemperature } from '../components/weatherToday/setMaxMinTemperature';
+import { setListWeatherEveryHour } from '../components/weatherEveryHour/setListWeatherEveryHour';
+import { setListWeatherEveryDay } from '../components/weatherEveryDay/setListWeatherEveryDay';
+
 const initialState = {
     list: [],
-    listWeatherToday: null,
-    listWeatherEveryThreeHours: [],
-    listWeatherEveryDay: []
+    weatherNow: null,
+    listWeatherToday: [],
+    listWeatherEveryDay: [],
+    maxTempToday: 0,
+    minTempToday: 0,
+    listWeatherEveryHour: [],
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -10,28 +18,15 @@ export const rootReducer = (state = initialState, action) => {
         case 'SAVE_LIST':
             return {
                 ...state,
-                list: action.payload.list,
-            }
-        case 'GET_LIST_WEATHER_TODAY':
-            debugger
-            return {
-                ...state,
-                listWeatherToday: action.payload
-            }
-        case 'GET_LIST_WEATHER_EVERY_THREE_HOURS':
-            debugger
-            return {
-                ...state,
-                listWeatherEveryThreeHours: action.payload
-            }
-        case 'GET_LIST_WEATHER_EVERY_DAY':
-            debugger
-            return {
-                ...state,
-                listWeatherEveryDay: action.payload
+                list: action.payload,
+                weatherNow: action.payload[0],
+                listWeatherToday: setWeatherToday(action.payload, action.payload[0]),
+                maxTempToday: setMaxMinTemperature(setWeatherToday(action.payload, action.payload[0])).maxTemp,
+                minTempToday: setMaxMinTemperature(setWeatherToday(action.payload, action.payload[0])).minTemp,
+                listWeatherEveryHour: setListWeatherEveryHour(setWeatherToday(action.payload, action.payload[0]), action.payload),
+                listWeatherEveryDay: setListWeatherEveryDay(action.payload)
             }
         default:
             return state;
     }
-
 }

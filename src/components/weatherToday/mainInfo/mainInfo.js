@@ -1,22 +1,29 @@
 import React from 'react';
 import './mainInfo.css';
+import { connect } from 'react-redux';
+import { setCelsius } from './setCelsius';
 
 
-
-export const MainInfo = ({ list, temp, tempFeels, minTemp, maxTemp, windSpeed }) => {
-
-
+const MainInfo = ({ weatherNow, maxTempToday, minTempToday }) => {
     return (
-
         <div className="main-info">
             <ul>
-                <li className="main-temp">{Math.trunc(temp - 273.15)}°С</li>
-                <li>Ощущается как {Math.trunc(tempFeels - 273.15)}°С</li>
-                <li className="average-temp">0°С...12°С</li>
-                <li className="wind"><img src="assets/icons/wind.png" alt="icon wind" />{windSpeed} м/с</li>
+                <li className="main-temp">{setCelsius(weatherNow.main.temp)}°С</li>
+                <li>Ощущается как {setCelsius(weatherNow.main.feels_like)}°С</li>
+                <li className="average-temp">{setCelsius(minTempToday)}°С...{setCelsius(maxTempToday)}°С</li>
+                <li className="wind"><img src="assets/icons/wind.png" alt="icon wind" />{weatherNow.wind.speed} м/с</li>
             </ul>
         </div>
     )
 }
 
+function mapStateToProps(state) {
+    return {
+        weatherNow: state.weatherNow,
+        maxTempToday: state.maxTempToday,
+        minTempToday: state.minTempToday,
+    }
+}
+
+export default connect(mapStateToProps)(MainInfo);
 
