@@ -1,21 +1,20 @@
 ul {
-    display: block;
-    list-style-type: none;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0;
-    font-size: 21px;
-    color: white;
-    font-family: Arial;
-    text-shadow: #00000059 8px -2px 3px;
-    padding-left: 40px;
-    
+  display: block;
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+  font-size: 21px;
+  color: white;
+  font-family: Arial;
+  text-shadow: #00000059 8px -2px 3px;
+  padding-left: 40px;
 }
 
 .addition-info {
-    margin-top: 30px;
-    line-height: 1.5;
-    font-size: 21px;
+  margin-top: 30px;
+  line-height: 1.5;
+  font-size: 21px;
 }

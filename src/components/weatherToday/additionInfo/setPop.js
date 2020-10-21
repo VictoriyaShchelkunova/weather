@@ -1,3 +1,3 @@
 export const setPop = (pop) => {
-    return Math.trunc(pop * 100);
+  return Math.trunc(pop * 100);
 }

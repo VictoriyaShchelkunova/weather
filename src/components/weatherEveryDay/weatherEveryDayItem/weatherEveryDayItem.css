@@ -1,27 +1,27 @@
 .listEveryDayItem {
-    width: 300px;
-    padding-left: 10px;
-    font-size: 14px;
-    font-weight: 600;
+  width: 300px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .containerEveryDayItems {
-    overflow: hidden;
-    margin: 0 10px 10px;
+  overflow: hidden;
+  margin: 0 10px 10px;
 }
 
 .containerEveryDayItems ul:last-child {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .title {
-    font-weight: 600;
-    font-size: 16px;
-    text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
 }
 
 .imgEveryThreeHoursItem {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
